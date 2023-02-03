@@ -5,11 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\PermissionController;
-use App\Http\Controllers\Api\CategoryProductsController;
-use App\Http\Controllers\Api\ProductCategoriesController;
+use App\Http\Controllers\Api\UserPaymentsController;
+use App\Http\Controllers\Api\UserCompaniesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +21,8 @@ use App\Http\Controllers\Api\ProductCategoriesController;
 */
 
 Route::post('/login', [AuthController::class, 'login'])->name('api.login');
+Route::post('/register', [UserController::class, 'store'])->name('api.register');
+
 
 Route::middleware('auth:sanctum')
     ->get('/user', function (Request $request) {
@@ -36,37 +36,29 @@ Route::name('api.')
         Route::apiResource('roles', RoleController::class);
         Route::apiResource('permissions', PermissionController::class);
 
-        Route::apiResource('categories', CategoryController::class);
-
-        // Category Products
-        Route::get('/categories/{category}/products', [
-            CategoryProductsController::class,
-            'index',
-        ])->name('categories.products.index');
-        Route::post('/categories/{category}/products/{product}', [
-            CategoryProductsController::class,
-            'store',
-        ])->name('categories.products.store');
-        Route::delete('/categories/{category}/products/{product}', [
-            CategoryProductsController::class,
-            'destroy',
-        ])->name('categories.products.destroy');
-
-        Route::apiResource('products', ProductController::class);
-
-        // Product Categories
-        Route::get('/products/{product}/categories', [
-            ProductCategoriesController::class,
-            'index',
-        ])->name('products.categories.index');
-        Route::post('/products/{product}/categories/{category}', [
-            ProductCategoriesController::class,
-            'store',
-        ])->name('products.categories.store');
-        Route::delete('/products/{product}/categories/{category}', [
-            ProductCategoriesController::class,
-            'destroy',
-        ])->name('products.categories.destroy');
-
         Route::apiResource('users', UserController::class);
+
+        // User Payments
+        Route::get('/users/{user}/payments', [
+            UserPaymentsController::class,
+            'index',
+        ])->name('users.payments.index');
+        Route::post('/users/{user}/payments', [
+            UserPaymentsController::class,
+            'store',
+        ])->name('users.payments.store');
+
+        // User Companies
+        Route::get('/users/{user}/companies', [
+            UserCompaniesController::class,
+            'index',
+        ])->name('users.companies.index');
+        Route::post('/users/{user}/companies/{company}', [
+            UserCompaniesController::class,
+            'store',
+        ])->name('users.companies.store');
+        Route::delete('/users/{user}/companies/{company}', [
+            UserCompaniesController::class,
+            'destroy',
+        ])->name('users.companies.destroy');
     });

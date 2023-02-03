@@ -66,6 +66,7 @@ class UserControllerTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['lastname']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -113,6 +114,7 @@ class UserControllerTest extends TestCase
 
         $data = [
             'name' => $this->faker->name,
+            'lastname' => $this->faker->lastName,
             'email' => $this->faker->unique->email,
         ];
 
@@ -122,6 +124,7 @@ class UserControllerTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['lastname']);
 
         $data['id'] = $user->id;
 

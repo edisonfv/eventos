@@ -36,7 +36,8 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-        $this->authorize('create', User::class);
+
+        //$this->authorize('create', User::class);
 
         $validated = $request->validated();
 
@@ -44,7 +45,7 @@ class UserController extends Controller
 
         $user = User::create($validated);
 
-        $user->syncRoles($request->roles);
+        //$user->syncRoles();
 
         return new UserResource($user);
     }

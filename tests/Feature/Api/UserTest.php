@@ -54,6 +54,7 @@ class UserTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['lastname']);
 
         $this->assertDatabaseHas('users', $data);
 
@@ -69,6 +70,7 @@ class UserTest extends TestCase
 
         $data = [
             'name' => $this->faker->name,
+            'lastname' => $this->faker->lastName,
             'email' => $this->faker->unique->email,
         ];
 
@@ -78,6 +80,7 @@ class UserTest extends TestCase
 
         unset($data['password']);
         unset($data['email_verified_at']);
+        unset($data['lastname']);
 
         $data['id'] = $user->id;
 

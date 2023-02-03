@@ -22,8 +22,11 @@ class DatabaseSeeder extends Seeder
             ]);
         $this->call(PermissionsSeeder::class);
 
-        $this->call(CategorySeeder::class);
-        $this->call(ProductSeeder::class);
+        $this->call(CashregisterSeeder::class);
+        $this->call(CompanySeeder::class);
+        $this->call(PaymentSeeder::class);
+        $this->call(PlanSeeder::class);
+        $this->call(SubsidiarySeeder::class);
         $this->call(UserSeeder::class);
     }
 }

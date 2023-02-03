@@ -22,35 +22,6 @@ return [
         'removed' => 'Successfully removed',
     ],
 
-    'categories' => [
-        'name' => 'Categories',
-        'index_title' => 'Categories List',
-        'new_title' => 'New Category',
-        'create_title' => 'Create Category',
-        'edit_title' => 'Edit Category',
-        'show_title' => 'Show Category',
-        'inputs' => [
-            'name' => 'Name',
-            'observation' => 'Observation',
-        ],
-    ],
-
-    'products' => [
-        'name' => 'Products',
-        'index_title' => 'Products List',
-        'new_title' => 'New Product',
-        'create_title' => 'Create Product',
-        'edit_title' => 'Edit Product',
-        'show_title' => 'Show Product',
-        'inputs' => [
-            'name' => 'Name',
-            'photo' => 'Photo',
-            'price' => 'Price',
-            'observation' => 'Observation',
-            'size' => 'Size',
-        ],
-    ],
-
     'users' => [
         'name' => 'Users',
         'index_title' => 'Users List',

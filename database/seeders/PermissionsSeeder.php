@@ -15,17 +15,35 @@ class PermissionsSeeder extends Seeder
         app()[PermissionRegistrar::class]->forgetCachedPermissions();
 
         // Create default permissions
-        Permission::create(['name' => 'list categories']);
-        Permission::create(['name' => 'view categories']);
-        Permission::create(['name' => 'create categories']);
-        Permission::create(['name' => 'update categories']);
-        Permission::create(['name' => 'delete categories']);
+        Permission::create(['name' => 'list cashregisters']);
+        Permission::create(['name' => 'view cashregisters']);
+        Permission::create(['name' => 'create cashregisters']);
+        Permission::create(['name' => 'update cashregisters']);
+        Permission::create(['name' => 'delete cashregisters']);
 
-        Permission::create(['name' => 'list products']);
-        Permission::create(['name' => 'view products']);
-        Permission::create(['name' => 'create products']);
-        Permission::create(['name' => 'update products']);
-        Permission::create(['name' => 'delete products']);
+        Permission::create(['name' => 'list companies']);
+        Permission::create(['name' => 'view companies']);
+        Permission::create(['name' => 'create companies']);
+        Permission::create(['name' => 'update companies']);
+        Permission::create(['name' => 'delete companies']);
+
+        Permission::create(['name' => 'list payments']);
+        Permission::create(['name' => 'view payments']);
+        Permission::create(['name' => 'create payments']);
+        Permission::create(['name' => 'update payments']);
+        Permission::create(['name' => 'delete payments']);
+
+        Permission::create(['name' => 'list plans']);
+        Permission::create(['name' => 'view plans']);
+        Permission::create(['name' => 'create plans']);
+        Permission::create(['name' => 'update plans']);
+        Permission::create(['name' => 'delete plans']);
+
+        Permission::create(['name' => 'list subsidiaries']);
+        Permission::create(['name' => 'view subsidiaries']);
+        Permission::create(['name' => 'create subsidiaries']);
+        Permission::create(['name' => 'update subsidiaries']);
+        Permission::create(['name' => 'delete subsidiaries']);
 
         // Create user role and assign existing permissions
         $currentPermissions = Permission::all();
